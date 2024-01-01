@@ -1,0 +1,88 @@
+:root {--main:#55D6C2;
+  --blue:#296EF2;
+  --green:#03CC17;
+  --mainLite: rgba(239, 237, 237, 0.50);
+  --white:rgba(255, 255, 255, 1);
+  --black:#000000;
+  padding:0px;
+  box-sizing: border-box;
+  margin:0px
+}
+
+button{
+  width:300px;
+  height: 70px;
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  color:var(--white);
+  font: 400 30px Roboto, sans-serif;
+  border-radius: 20px;
+
+}
+
+input::placeholder {
+  font-size: 24px; 
+}
+
+/*<----Signin start----->*/
+.Signin {
+  width:100%;
+  height:100vh;
+  background-color: var(--main);
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Signin .forgotPassword{
+  height:auto;
+ 
+  background-color: var(--mainLite);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding:50px 30px;
+  gap:5px;
+}
+
+.forgotPassword p{text-align: center;
+font-size: 24px;}
+
+
+.forgotPassword form{
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap:60px;
+  width:auto;
+  padding: 40px 30px;
+}
+
+.forgotPassword form input{
+  height:70px;
+  width:600px;
+}
+
+.forgotPassword form button{
+  background-color: var(--green);
+}
+
+.forgotPassword .Signup{
+  background-color: var(--blue);
+  
+}
+
+
+
+
+
+
+/*<----Signin  end----->*/
+
+
+
