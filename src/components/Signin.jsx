@@ -8,15 +8,14 @@ const Signin = () => {
 
   const [name, setName] = React.useState("");
   const [password, setPassword] = React.useState();
-  const [email, setEmail] = React.useState("");
-  const [wrongEmail, setWrongEmail] = React.useState(false);
+ 
   const [wrongDetails, setWrongDetails] = React.useState(false);
   const [noAccount, setNoAccount] = React.useState(false);
   const [forgotPassword, setforgotPassword] = React.useState(false);
   const Navigate = useNavigate();
 
   const handleSubmit = (e) => {
-    setWrongEmail(false);
+   
     setWrongDetails(false);
     e.preventDefault();
 
@@ -24,25 +23,23 @@ const Signin = () => {
       ? loginDetails.forEach((value) => {
           if (
             value.name == name &&
-            value.password == password &&
-            value.email == email
+            value.password == password 
+           
           ) {
-            Navigate("/MainComponent", { state: { session: true } });
+            Navigate("/Dashboard", { state: { session: true } });
           } else if (
             value.name == name &&
-            value.password == password &&
-            value.email != email
-          ) {
-            setWrongEmail(true);
-          } else {
-            setWrongDetails(true);
+            !value.password == password 
+            
+          ) {setWrongDetails(true);
+            
           }
         })
       : setNoAccount(true);
   };
 
   return (
-    <main className="Signin">
+    <main className="Login">
       {forgotPassword ? (
         <div className="forgotPassword">
           <p>
@@ -57,7 +54,7 @@ const Signin = () => {
             <input placeholder="Your Email" type="email" />
             <button type="submit"> Submit</button>
           </form>
-          <button className="Signup"
+          <button className="signupBtn"
             onClick={() => {
               Navigate("/Signup");
             }}
@@ -66,27 +63,23 @@ const Signin = () => {
           </button>
         </div>
       ) : (
-        <div>
+        <div className="Signin">
           <header
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              font: "2rem sans-serif",
-              py: "16px",
-            }}
           >
-            Login
+            Helpdesk System
           </header>
           <form onSubmit={handleSubmit}>
-            <div>
+            
               <input
                 label="Name"
                 name="name"
+                placeholder="Username"
                 onChange={(e) => {
                   setName(e.target.value);
                 }}
               />
               <input
+              placeholder="Password"
                 label="Password"
                 name="passowrd"
                 type="password"
@@ -94,22 +87,16 @@ const Signin = () => {
                   setPassword(e.target.value);
                 }}
               />
-              <input
-                label="Email"
-                name="email"
-                type="email"
-                onChange={(e) => {
-                  setEmail(e.target.value);
-                }}
-              />
+              
+              
               {/* Add more form fields here */}
-              <button type="submit" /* variant="contained" */ color="primary">
+              <button type="submit">
                 Submit
               </button>
-            </div>
+            
           </form>
-          {wrongEmail && <div>The email is incorrect</div>}
-          {wrongDetails && <div>the name or the number is incorrect</div>}
+         
+          {wrongDetails && <div>the details are incorrect</div>}
           {noAccount && (
             <div /* severity="info" */>
               No account found with that information{" "}
@@ -124,9 +111,9 @@ const Signin = () => {
             >
               Forgot Password
             </a>
-            <small>
+            
               <Link to="/Signup">Signup</Link>
-            </small>
+           
           </div>
         </div>
       )}

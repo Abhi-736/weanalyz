@@ -4,9 +4,14 @@
   --mainLite: rgba(239, 237, 237, 0.50);
   --white:rgba(255, 255, 255, 1);
   --black:#000000;
+}
+
+body{
   padding:0px;
   box-sizing: border-box;
-  margin:0px
+  margin:0px;
+  overflow-x: hidden;
+ 
 }
 
 button{
@@ -23,10 +28,14 @@ button{
 
 input::placeholder {
   font-size: 24px; 
+  padding-left: 5px;
 }
 
 /*<----Signin start----->*/
-.Signin {
+
+
+
+.Login {
   width:100%;
   height:100vh;
   background-color: var(--main);
@@ -35,7 +44,9 @@ input::placeholder {
   align-items: center;
 }
 
-.Signin .forgotPassword{
+/*<----forgotPassword start----->*/
+
+.Login .forgotPassword{
   height:auto;
  
   background-color: var(--mainLite);
@@ -66,23 +77,408 @@ font-size: 24px;}
 .forgotPassword form input{
   height:70px;
   width:600px;
+  font-size:24px;
 }
 
 .forgotPassword form button{
   background-color: var(--green);
 }
 
-.forgotPassword .Signup{
+.forgotPassword .signupBtn{
   background-color: var(--blue);
   
+}
+/*<----forgotPassword end----->*/
+
+.Signin{
+  height:auto;
+ 
+  background-color: var(--mainLite);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding:50px 30px;
+  gap:5px;
+}
+
+
+.Signin header{ font:700 48px Roboto;
+  text-align: center;
+
+}
+
+.Signin form{
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap:60px;
+  width:auto;
+  padding: 40px 30px;
+}
+
+.Signin form input{
+  height:70px;
+  width:600px;
+  font-size:24px;
+
+}
+
+.Signin form button {
+  background-color: var(--green);
+  transition:.3s ease;
+}
+
+.Signin form button:hover {
+  transform:scale(1.1)
+}
+
+
+.Signin .links{
+  width:100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.links a {cursor:pointer}
+
+
+/*<----Signin  end----->*/
+
+/*<----Signup  start----->*/
+
+.Signup{
+  display: flex;
+  justify-content: center;
+   align-items: center;
+   background-color: var(--main);
+   width:100%;
+    height:100vh;
+
+}
+
+
+
+.SignupContainer header{
+  font:700 48px Roboto;
+  text-align: center;
+}
+
+
+
+.SignupContainer {
+  height:auto;
+ 
+  background-color: var(--mainLite);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding:50px 30px;
+  gap:5px;
+}
+
+.SignupContainer form{
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap:10px;
+  width:auto;
+  padding: 40px 30px;
+}
+
+.SignupContainer form input{
+  height:70px;
+  width:600px;
+  font-size:24px;
+
+}
+
+.SignupContainer form button {
+  background-color: var(--blue);
+  transition:.3s ease;
+}
+
+.SignupContainer form button:hover {
+  transform:scale(1.1)
 }
 
 
 
 
 
-
-/*<----Signin  end----->*/
-
+/*<----Signup  end----->*/
 
 
+/*<----Dashboard start----->*/
+.Dashboard{
+  height:100vh;
+  width:100%;
+}
+.Dashboard header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding:5px 30px;
+  background-color: var(--main);
+  height:90px;
+}
+.Dashboard header h2{
+  color:var(--white);
+font-family: Roboto;
+font-size: 48px;
+font-style: italic;
+font-weight: 700;
+line-height: normal;
+}
+
+.Dashboard header ul{
+  gap:10px;
+  display:flex;
+  text-decoration: none;
+  list-style:none
+ 
+}
+
+.DashboardContainer{
+  display: flex;
+width:100%;
+min-height: 100%;
+}
+
+/*<----Sidebar start----->*/
+.sidebar{
+background: rgba(106, 103, 103, 0.21);;
+width:250px;
+padding:10px}
+
+.sidebarMenu{
+  
+  width:100%;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
+  align-items: space-between;
+  padding:0;
+  gap:20px
+}
+
+.sidebarMenu li .hideSVG{
+  visibility:hidden;
+}
+
+.sidebarMenu li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+font-size: 26px;
+  gap:20px;
+}
+
+/*<----Sidebar end----->*/
+
+.mainContainer{
+  flex-grow: 1;
+  width:100%
+}
+
+/*<----dashboardPage start----->*/
+.dashboardPage{
+width:100%;
+display: flex;
+flex-direction:column;
+align-items:space-between;
+gap:20px;
+}
+
+.dashboardPage header{
+  background-color: white;
+  color: #000;
+text-align: center;
+display:flex;
+justify-content: center;
+align-items: center;
+font-family: Sanchez;
+font-size: 36px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+
+.dashboardPage main{
+  display: flex;
+  gap:20px;
+  flex-wrap: wrap;
+  padding: 5px;
+
+}
+
+.dashboardPage main .box{
+  padding:10px;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  width:250px;
+  height:270px;
+  border-radius: 20px;
+  box-shadow: 1px 1px 2px;
+}
+
+.dashboardPage main .box p{
+ font-size: 24px;
+}
+
+.dashboardPage main .box h4{
+  margin: 0px;
+  color: #05386B;
+  font-size: 96px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+
+.blue{
+  background: #2F82FF;
+}
+
+.green{
+  background: #0BFF68;
+}
+
+.red{
+  background: #FE594E;
+
+}
+ .red p{
+  text-align: center;
+ }
+
+.yellow{
+  background: #FCFF6C;
+}
+/*<----dashboardPage end----->*/
+/*<----newTicket start----->*/
+.newTicket{
+  display: flex;
+  flex-direction: column;
+  width:100%;
+  justify-content: space-between;
+  padding-bottom: 50px;
+ 
+}
+.newTicket header{ width:100%;
+  color: #000;
+background-color: white;
+display: center;
+justify-content: center;
+align-items: center;
+font-family: Sanchez;
+font-size: 36px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+
+.newTicket form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 50px;
+  padding: 0px 30px;
+
+}
+
+.newTicket form div{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding:10px;
+  flex-basis: 50%;
+  
+}
+
+.newTicket form div label{
+  color: #000;
+font-family: Sanchez;
+font-size: 24px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+
+.newTicket form div input {
+  height:43px;
+  width: 300px;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.01);
+  background: rgba(196, 196, 196, 0.63);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.inputWidthFull{
+  margin:5px 0px;
+  gap:10px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: flex-start !important;
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+.inputWidthFull input{
+  width: 100% !important;
+}
+
+.verticle{
+  display: flex;
+  flex-direction: column;
+  gap:10px;
+  align-items: flex-start !important;
+
+}
+
+.textbox{
+  grid-row-start: 4;
+  grid-row-end: 7;
+  grid-column-start: 2;
+  grid-column-end: 3;
+
+}
+
+.textbox input{
+  width:100% !important;
+  height:100% !important
+}
+ form img {
+  max-width: 100%;
+
+ }
+
+ .submit{
+  justify-self: flex-end;
+  align-self: flex-end;
+ }
+
+/*<----newTicket end----->*/
+/*<----Dashboard  end----->*/
+
+
+/*<----Footer start----->*/
+.mcFooter{
+  display: flex;
+  width:100%;
+  justify-content: center;
+  align-items: center;
+  height:50px;
+  background-color: var(--main);
+}
+
+/*<----Footer end----->*/

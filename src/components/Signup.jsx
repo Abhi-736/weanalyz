@@ -6,7 +6,7 @@ const Signup= () => {
   const [loginDetails, setLoginDetails] = React.useState([]);
 
   const [name, setName] = React.useState("");
-  const [number, setNumber] = React.useState();
+  const [password, setPassword] = React.useState();
   const [email, setEmail] = React.useState("");
   const [showAlert, setshowAlert] = React.useState(false);
   const [loginbtn,showLoginbtn] =React.useState(false);
@@ -15,12 +15,8 @@ const Signup= () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    console.log(name);
-    console.log(number);
-    console.log(email);
-
     setLoginDetails((value) => {
-      return [...value, { 'name': name, 'number': number, 'email': email }];
+      return [...value, { 'name': name, 'password': password, 'email': email }];
     });
   };
   React.useEffect(() => {
@@ -30,7 +26,7 @@ const Signup= () => {
       const match = storedDetails.some((value) => {
         return (
           value.name === name &&
-          value.number === number &&
+          value.password === password &&
           value.email === email
         );
       });
@@ -41,7 +37,7 @@ const Signup= () => {
         // Update localStorage with the updated login details
         setshowAlert(false);
         localStorage.setItem("formDetails", JSON.stringify(loginDetails));
-name&&number&&email?showLoginbtn(true):null
+name&&password&&email?showLoginbtn(true):null
         /* navigate("/Login"); */
 
       }
@@ -50,11 +46,13 @@ name&&number&&email?showLoginbtn(true):null
   }, [loginDetails]);
 
   return (
-    <div  style={{height:'82vh'}}>
-      <header style={{display:'flex', justifyContent:'center', font:'2rem sans-serif'}}>Signup</header>
+    <div  className="Signup">
+      <main className="SignupContainer">
+      <header style={{display:'flex', justifyContent:'center', font:'2rem sans-serif'}}>HelpDesk System </header>
+      <h4>Sign up here</h4>
       <form onSubmit={handleSubmit}>
-        <div style={{flexDirection:'column'}}>
-          <input
+       
+          <input placeholder="Name"
             label="Name"
             name="name"
             /* value={name} */
@@ -62,22 +60,17 @@ name&&number&&email?showLoginbtn(true):null
               setName(e.target.value);
             }}
           />
-          <input
+          <input placeholder="Password"
             label="Password"
             name="Password"
             type="password"
             /* value={number} */
             onChange={(e) => {
               
-              const parsedNumber = parseFloat(e.target.value);
-              if (!isNaN(parsedNumber)) { 
-                setNumber(parsedNumber);
-              } else {
-                setNumber(undefined); 
-              }
+              setPassword(e.target.value)
             }}
           />
-          <input
+          <input placeholder="Email"
             label="Email"
             name="email"
             type="email"
@@ -90,11 +83,13 @@ name&&number&&email?showLoginbtn(true):null
           <button type="submit"  color="primary">
             Submit
           </button>
-        </div>
+        
       </form>
       {showAlert &&<div >The entry already exists!</div>}
       {loginbtn &&<div>Thankyou for signing up now <Link to='/'>Login</Link></div>}
-    </div>
+   
+      </main> 
+      </div>
   );
 };
 
