@@ -286,7 +286,8 @@ font-size: 26px;
 
 .mainContainer{
   flex-grow: 1;
-  width:100%
+  width:100%;
+  position:relative;
 }
 
 /*<----dashboardPage start----->*/
@@ -473,6 +474,8 @@ line-height: normal;
 
 /*<----Footer start----->*/
 .mcFooter{
+  position: absolute;
+  bottom:0;
   display: flex;
   width:100%;
   justify-content: center;
